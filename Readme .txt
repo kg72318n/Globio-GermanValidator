@@ -4,11 +4,11 @@ A short web check that tells a German A1 learner how ready they are for the Goet
 
 
 
-Problem Statement
+Problem Statement ?
 
 Many learners finish A1 and book the exam without knowing if they are ready. Some fail and lose the exam fee and months on their journey abroad. This app gives them a quick, honest signal before they book.
 
-What it does
+What Webapp Does?
 The learner answers 14 multiple-choice questions: 5 vocabulary, 5 grammar and 4 reading.
 The app shows a verdict (Ready, Almost ready or Not yet) with an overall score.
 It shows a score for each skill, compares the strongest and weakest, and lists the top 3 things to practise before booking.
@@ -31,11 +31,6 @@ Ready: overall 75% or above, and no skill below 60%.
 Almost ready: everything in between, including a high overall score with one weak skill.
 
 Why these rules:
-
-60% is the pass mark for Goethe Start Deutsch 1. Check the current rules on the Goethe and ÖSD websites.
-The 15-point buffer exists because a 14-question check is a noisy sample.
-One weak skill can still fail the exam, so it blocks “Ready”.
-
 All thresholds and weights live in one CONFIG object, so they are easy to change.
 
 Why no LLM, RAG or agents
