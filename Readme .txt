@@ -2,10 +2,9 @@ A1 German Exam Readiness Check
 
 A short web check that tells a German A1 learner how ready they are for the Goethe Start Deutsch 1 or ÖSD A1 exam, before they pay for it.
 
-Live app: <paste your Streamlit or GitHub Pages link here>
-Video walkthrough: <paste your video link here>
 
-The problem
+
+Problem Statement
 
 Many learners finish A1 and book the exam without knowing if they are ready. Some fail and lose the exam fee and months on their journey abroad. This app gives them a quick, honest signal before they book.
 
@@ -13,7 +12,17 @@ What it does
 The learner answers 14 multiple-choice questions: 5 vocabulary, 5 grammar and 4 reading.
 The app shows a verdict (Ready, Almost ready or Not yet) with an overall score.
 It shows a score for each skill, compares the strongest and weakest, and lists the top 3 things to practise before booking.
-The learner can review the questions they missed.
+
+The learner can review the questions that are wrong.
+
+Why these rules:
+
+60% is the pass mark for Goethe Start Deutsch 1. Check the current rules on the Goethe and ÖSD websites.
+The 15-point buffer exists because a 14-question check is a noisy sample.
+One weak skill can still fail the exam, so it blocks “Ready”.
+
+All thresholds and weights live in one CONFIG object, so they are easy to change.
+
 How “ready” is calculated
 Skill score = difficulty-weighted % correct (easy = 1, medium = 1.5).
 Overall score = average of the three skill scores.
@@ -43,6 +52,8 @@ Compare verdicts with real exam outcomes and check that “Ready” learners pas
 Retest the same learners with different questions to check the score is stable.
 Interview learners about how they decide when to book and which tips they would follow.
 Add listening, speaking and writing checks, adaptive questions and a bigger question bank.
+
+
 Files
 File	Purpose
 app.py	Streamlit version of the app
@@ -51,12 +62,3 @@ index.html	Standalone version, no server needed
 Run locally
 pip install -r requirements.txt
 streamlit run app.py
-
-For the standalone version, open index.html in a browser.
-
-Deploy
-Streamlit Community Cloud: connect the repo at share.streamlit.io, choose app.py as the main file and deploy.
-GitHub Pages: in Settings → Pages, deploy from the main branch root to serve index.html.
-Built with
-
-Python, Streamlit and Altair for the Streamlit version; plain HTML, CSS and JavaScript for the standalone version. I built it with AI assistance and designed the readiness logic and checked the questions myself.
