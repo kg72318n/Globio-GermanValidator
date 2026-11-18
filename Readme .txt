@@ -51,7 +51,30 @@ Ready: - overall 75% or above,
 Almost ready: -60% - 74% everything in between, including a high overall score with one weak skill.
 Not yet: - overall below 60% (the exam pass mark).
 
+Skill score = weighted % correct
 
+For each skill (vocabulary, grammar, reading), add up the points the learner earned and divide by the total points available:
+
+skill score = points earned ÷ points available × 100
+
+The points available per skill:
+
+Vocabulary: 2 easy + 3 medium = 2 + 4.5 = 6.5 points
+Grammar: 2 easy + 3 medium = 6.5 points
+Reading: 2 easy + 2 medium = 2 + 3 = 5 points
+3. Overall = average of the three skill scores
+
+Add the three skill scores and divide by 3. Each skill counts equally, so a learner can’t hide a weak reading score behind a strong vocabulary score.
+
+Worked example
+Skill	What the learner missed	Points earned	Score
+Vocabulary	One medium question	5 of 6.5	77%
+Grammar	One medium question	5 of 6.5	77%
+Reading	One easy and one medium question	2.5 of 5	50%
+
+Overall = (77 + 77 + 50) ÷ 3 = 68%.
+
+The verdict is Almost ready. The overall score is above the 60% pass mark, but it’s below 75%, and reading is below 60%. A learner like this would likely fail the real exam on reading, which is why one weak skill stops the “Ready” verdict.
 
 Why no LLM, RAG or agents
 
