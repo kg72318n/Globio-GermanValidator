@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A1 German exam readiness check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f6fa;--card:#fff;--ink:#0f1b3d;--mute:#5d6882;--line:#e1e6f0;--accent:#2f5bea;--accent-soft:#e8eefd;--ok:#16825d;--mid:#b9770e;--bad:#c53030;--shadow:0 1px 2px rgba(15,27,61,.06),0 8px 24px rgba(15,27,61,.06)}
+@media (prefers-color-scheme:dark){:root{--bg:#0b1020;--card:#141b30;--ink:#eef1f8;--mute:#9aa5bf;--line:#26304d;--accent:#7b9bff;--accent-soft:#1b2748;--ok:#4cc38a;--mid:#f0b43c;--bad:#ff7a70;--shadow:none}}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55;min-height:100vh;-webkit-font-smoothing:antialiased}
+header{background:var(--card);border-bottom:1px solid var(--line)}
+header div{max-width:680px;margin:0 auto;padding:14px 20px;font-weight:600;font-size:.95rem;display:flex;align-items:center;gap:10px}
+header span{width:10px;height:10px;border-radius:50%;background:var(--accent)}
+main{max-width:680px;margin:0 auto;padding:32px 20px 64px}
+h1{font-size:clamp(1.7rem,5vw,2.3rem);line-height:1.15;margin:0 0 14px;font-weight:700;letter-spacing:-.02em}
+h2{font-size:1.05rem;font-weight:600;margin:32px 0 12px}
+p{margin:0 0 12px}
+.mute{color:var(--mute)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px;box-shadow:var(--shadow)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0 22px}
+.facts div{background:var(--accent-soft);border-radius:10px;padding:12px;font-size:.9rem;font-weight:500}
+.facts b{display:block;font-size:1.3rem;color:var(--accent)}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-bottom:18px}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:3px;transition:width .25s}
+.passage{border:1px solid var(--line);background:var(--bg);padding:14px 16px;margin:0 0 18px;border-radius:10px;white-space:pre-line;font-size:.95rem}
+.tag{font-size:.85rem;color:var(--mute);margin-bottom:8px;font-weight:500}
+.q{font-size:1.2rem;font-weight:600;margin:0 0 16px;line-height:1.35}
+.opt{display:flex;align-items:center;gap:12px;width:100%;text-align:left;font:inherit;color:inherit;background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:10px;cursor:pointer;transition:border-color .12s,background .12s}
+.opt:hover{border-color:var(--accent)}
+.opt.sel{border-color:var(--accent);background:var(--accent-soft)}
+.key{flex:none;width:26px;height:26px;border-radius:7px;background:var(--bg);display:grid;place-items:center;font-size:.8rem;font-weight:600;color:var(--mute)}
+.opt.sel .key{background:var(--accent);color:#fff}
+button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.btn{font:inherit;font-weight:600;background:var(--accent);color:#fff;border:0;border-radius:10px;padding:12px 24px;cursor:pointer}
+.btn:hover:not(:disabled){filter:brightness(1.08)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn.ghost{background:transparent;color:var(--accent);border:1.5px solid var(--accent)}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:8px}
+.hero{border-left:6px solid var(--c);}
+.badge{display:inline-block;font-size:.85rem;font-weight:600;color:var(--c);background:var(--accent-soft);padding:3px 12px;border-radius:99px;margin-bottom:10px}
+.verdict{font-size:clamp(2rem,7vw,2.7rem);font-weight:700;line-height:1.1;letter-spacing:-.02em;margin:0 0 8px;color:var(--c)}
+.pies{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:6px 0 16px}
+.pie{text-align:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 8px;box-shadow:var(--shadow)}
+.disc{position:relative;width:100%;max-width:120px;aspect-ratio:1;border-radius:50%;margin:0 auto 10px}
+.disc i{position:absolute;inset:16%;border-radius:50%;background:var(--card);display:grid;place-items:center;font-style:normal;font-weight:700;font-size:1.15rem}
+.pie span{font-size:.9rem;font-weight:500;color:var(--mute)}
+.cmp{padding:14px 16px;border-radius:10px;background:var(--accent-soft);font-size:.95rem}
+.rec{padding:14px 16px;border:1px solid var(--line);border-radius:12px;margin-bottom:10px;background:var(--card);box-shadow:var(--shadow);font-size:.95rem}
+.rec b{display:block;margin-bottom:2px;font-size:1rem}
+.note{font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px;margin-top:28px}
+details{margin-top:18px}
+summary{cursor:pointer;font-weight:600;color:var(--accent)}
+.miss{margin:12px 0;font-size:.92rem;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+@media (max-width:480px){.card{padding:20px}.facts{grid-template-columns:1fr}.disc{max-width:90px}}
+</style>
+</head>
+<body>
+<header><div><span></span>A1 German exam readiness check</div></header>
+<main id="app"></main>
+<script>
+// ---- Tunable settings (change these to change what "ready" means) ----
+const CONFIG = {
+  PASS: 60,        // real exam pass mark (%): below this overall = "Not yet"
+  READY: 75,       // overall % needed for "Ready" (buffer above pass mark: 14 questions is a noisy sample)
+  WEAK_SKILL: 60,  // any skill below this blocks "Ready"
+  WEIGHTS: {1: 1, 2: 1.5}, // difficulty 1 = easy, 2 = medium/hard
+  MAX_TIPS: 3
+};
+
+const SKILLS = {vocab: "Vocabulary", grammar: "Grammar", reading: "Reading"};
+
+const TIPS = {
+  greetings: "Learn the 30 most common everyday phrases (Danke, Bitte, Entschuldigung, Tschüss) with flashcards.",
+  places: "Learn 25 place nouns together with their article, e.g. der Bahnhof, die Bäckerei, das Café.",
+  numbers: "Say numbers 1–100 out loud, and drill the tricky pairs like siebzehn (17) vs siebzig (70).",
+  time: "Practise telling the time: halb drei is 2:30, Viertel nach and Viertel vor. Do 10 clock faces a day.",
+  family: "Build a small family tree in German (Mutter, Vater, Tante, Onkel, Cousine) and describe it aloud.",
+  verbs: "Drill present-tense endings (ich komme, du kommst, er kommt) and sein/haben until they are automatic.",
+  articles: "Practise ein/einen/eine after “haben” and “brauchen”: the masculine form changes (Ich habe einen Bruder).",
+  modals: "Practise können, müssen, wollen: write 10 sentences where the second verb goes to the end.",
+  wordorder: "Practise verb-in-second-position: start sentences with a time word (Heute gehe ich…) and write 10.",
+  messages: "Read 5 short A1 messages or emails and underline who, where and when before answering questions.",
+  notices: "Practise reading signs, opening hours and timetables: days, times, von/bis, geschlossen."
+};
+
+const LABELS = {greetings:"Everyday phrases",places:"Place words",numbers:"Numbers",time:"Telling the time",family:"Family words",verbs:"Verb endings",articles:"Articles (ein / einen / eine)",modals:"Modal verbs",wordorder:"Word order",messages:"Reading messages",notices:"Reading signs and notices"};
+
+const Q = [
+  // Vocabulary
+  {s:"vocab", t:"greetings", d:1, q:"How do you say “thank you” in German?", o:["Bitte","Tschüss","Danke","Entschuldigung"], a:2},
+  {s:"vocab", t:"places", d:1, q:"What does “der Bahnhof” mean?", o:["airport","train station","bus","bakery"], a:1},
+  {s:"vocab", t:"numbers", d:2, q:"Which number is “siebzehn”?", o:["7","27","70","17"], a:3},
+  {s:"vocab", t:"time", d:2, q:"It is “halb drei”. What time is it?", o:["2:30","3:30","2:15","3:00"], a:0},
+  {s:"vocab", t:"family", d:2, q:"“Die Schwester meiner Mutter” is my …", o:["Oma","Cousine","Tante","Nichte"], a:2},
+  // Grammar
+  {s:"grammar", t:"verbs", d:1, q:"Ich ___ aus Indien.", o:["kommst","komme","kommt","kommen"], a:1},
+  {s:"grammar", t:"verbs", d:1, q:"Wir ___ Studenten.", o:["bin","ist","seid","sind"], a:3},
+  {s:"grammar", t:"articles", d:2, q:"Ich habe ___ Bruder.", o:["einen","ein","eine","einem"], a:0},
+  {s:"grammar", t:"modals", d:2, q:"Ich ___ gut Deutsch sprechen.", o:["können","kannst","kann","könnt"], a:2},
+  {s:"grammar", t:"wordorder", d:2, q:"Which sentence is correct?", o:["Heute ich gehe ins Kino.","Heute gehe ich ins Kino.","Ich heute gehe ins Kino.","Gehe heute ich ins Kino."], a:1},
+  // Reading
+  {s:"reading", t:"messages", d:1, p:"Hallo Anna,\nich bin Tom. Ich wohne in Berlin und arbeite in einem Café. Am Samstag habe ich frei. Dann spiele ich Fußball mit meinem Bruder. Am Sonntag besuche ich meine Eltern in Hamburg.\nTschüss, Tom", q:"Where does Tom work?", o:["In an office","In a café","In a school","In a hotel"], a:1},
+  {s:"reading", t:"messages", d:2, p:"Hallo Anna,\nich bin Tom. Ich wohne in Berlin und arbeite in einem Café. Am Samstag habe ich frei. Dann spiele ich Fußball mit meinem Bruder. Am Sonntag besuche ich meine Eltern in Hamburg.\nTschüss, Tom", q:"What does Tom do on Saturday?", o:["He works","He plays football","He visits his parents","He sleeps"], a:1},
+  {s:"reading", t:"notices", d:2, p:"Bäckerei Müller\nÖffnungszeiten:\nMo–Fr: 7:00–18:00 Uhr\nSa: 7:00–13:00 Uhr\nSonntag: geschlossen", q:"Until when is the bakery open on Saturday?", o:["Until 18:00","Until 7:00","Until 13:00","It is closed"], a:2},
+  {s:"reading", t:"notices", d:1, p:"Bäckerei Müller\nÖffnungszeiten:\nMo–Fr: 7:00–18:00 Uhr\nSa: 7:00–13:00 Uhr\nSonntag: geschlossen", q:"You want bread on Sunday. What is true?", o:["Open until 13:00","The bakery is closed","It opens at 7:00","It opens at 18:00"], a:1}
+];
+
+// ---- Scoring (pure functions, easy to test and change) ----
+function skillScores(answers){
+  const out = {};
+  for (const k in SKILLS) out[k] = {got:0, max:0};
+  Q.forEach((q,i) => {
+    const w = CONFIG.WEIGHTS[q.d];
+    out[q.s].max += w;
+    if (answers[i] === q.a) out[q.s].got += w;
+  });
+  for (const k in out) out[k].pct = Math.round(100 * out[k].got / out[k].max);
+  return out;
+}
+function verdict(scores){
+  const pcts = Object.values(scores).map(x => x.pct);
+  const overall = Math.round(pcts.reduce((a,b) => a + b, 0) / pcts.length); // each skill counts equally
+  const weakest = Math.min(...pcts);
+  let level;
+  if (overall < CONFIG.PASS) level = "notyet";
+  else if (overall >= CONFIG.READY && weakest >= CONFIG.WEAK_SKILL) level = "ready";
+  else level = "almost";
+  return {overall, weakest, level};
+}
+function topPriorities(answers){
+  const loss = {};
+  Q.forEach((q,i) => { if (answers[i] !== q.a) loss[q.t] = (loss[q.t] || 0) + CONFIG.WEIGHTS[q.d]; });
+  return Object.entries(loss).sort((a,b) => b[1]-a[1]).slice(0, CONFIG.MAX_TIPS).map(e => e[0]);
+}
+
+// ---- UI ----
+const app = document.getElementById("app");
+let i = 0, answers = [], picked = null;
+
+function start(){
+  i = 0; answers = []; picked = null;
+  app.innerHTML = `<div class="card">
+    <h1>Are you ready for your A1 German exam?</h1>
+    <p>Answer a short check on vocabulary, grammar and reading. You will see your readiness for each skill and what to practise before you book Goethe Start Deutsch 1 or ÖSD A1.</p>
+    <div class="facts"><div><b>${Q.length}</b>questions</div><div><b>~5 min</b>to finish</div><div><b>3</b>skills scored</div></div>
+    <button class="btn" id="go">Start the check</button>
+    <p class="mute" style="font-size:.85rem;margin:14px 0 0">No sign-up. Nothing is stored.</p></div>`;
+  document.getElementById("go").onclick = show;
+}
+
+function show(){
+  const q = Q[i];
+  app.innerHTML = `
+    <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="${Q.length}" aria-valuenow="${i}"><i style="width:${100*i/Q.length}%"></i></div>
+    <div class="card">
+      <div class="tag">Question ${i+1} of ${Q.length} · ${SKILLS[q.s]}</div>
+      ${q.p ? `<div class="passage">${q.p}</div>` : ""}
+      <p class="q">${q.q}</p>
+      <div role="group" aria-label="Answers">${q.o.map((o,k) => `<button class="opt" data-k="${k}"><span class="key">${"ABCD"[k]}</span><span>${o}</span></button>`).join("")}</div>
+      <div class="row"><span class="mute">${picked === null ? "Pick one answer" : ""}</span><button class="btn" id="next" disabled>${i === Q.length-1 ? "See my result" : "Next"}</button></div>
+    </div>`;
+  picked = null;
+  app.querySelectorAll(".opt").forEach(b => b.onclick = () => {
+    picked = +b.dataset.k;
+    app.querySelectorAll(".opt").forEach(x => x.classList.toggle("sel", x === b));
+    document.getElementById("next").disabled = false;
+  });
+  document.getElementById("next").onclick = () => {
+    answers[i] = picked; i++;
+    i < Q.length ? show() : result();
+  };
+}
+
+function color(p){ return p >= CONFIG.READY ? "var(--ok)" : p >= CONFIG.WEAK_SKILL ? "var(--mid)" : "var(--bad)"; }
+
+function result(){
+  const sc = skillScores(answers), v = verdict(sc), tops = topPriorities(answers);
+  const text = {
+    ready: ["Ready", "You are scoring comfortably above the pass mark in every skill. Book the exam, and do one full mock test first."],
+    almost: ["Almost ready", "You are close, but " + (v.overall >= CONFIG.PASS ? "one skill is still weak" : "your score is near the pass mark") + ". Fix the points below, then book."],
+    notyet: ["Not yet", "Your score is below the exam pass mark of " + CONFIG.PASS + "%. A few more weeks of practice will protect your exam fee."]
+  }[v.level];
+  const col = {ready:"var(--ok)", almost:"var(--mid)", notyet:"var(--bad)"}[v.level];
+  const ranked = Object.keys(SKILLS).sort((a,b) => sc[b].pct - sc[a].pct);
+  const best = ranked[0], worst = ranked[ranked.length-1], gap = sc[best].pct - sc[worst].pct;
+  const cmpText = gap === 0
+    ? "Your three skills are level, so practise all of them evenly."
+    : `<b>Strongest:</b> ${SKILLS[best]} (${sc[best].pct}%). <b>Weakest:</b> ${SKILLS[worst]} (${sc[worst].pct}%), ${gap} points lower. Start your practice there.`;
+  const missed = Q.map((q,k) => ({q,k})).filter(x => answers[x.k] !== x.q.a);
+  app.innerHTML = `
+    <div class="card hero" style="--c:${col}">
+      <div class="badge">Overall score: ${v.overall}%</div>
+      <div class="verdict">${text[0]}</div>
+      <p style="margin:0">${text[1]}</p>
+    </div>
+    <h2>By skill</h2>
+    <div class="pies">${Object.keys(SKILLS).map(k => `
+      <div class="pie"><div class="disc" role="img" aria-label="${SKILLS[k]} ${sc[k].pct} percent" style="background:conic-gradient(${color(sc[k].pct)} 0 ${sc[k].pct}%, var(--line) ${sc[k].pct}% 100%)"><i>${sc[k].pct}%</i></div>
+      <span>${SKILLS[k]}</span></div>`).join("")}</div>
+    <div class="cmp">${cmpText}</div>
+    <p class="mute" style="font-size:.85rem;margin-top:10px">Each pie fills to your score in that skill. Green is at or above ${CONFIG.READY}%, amber is ${CONFIG.WEAK_SKILL}–${CONFIG.READY-1}%, red is below ${CONFIG.WEAK_SKILL}%.</p>
+    <h2>${tops.length ? "Practise these before you book" : "Nothing to fix here"}</h2>
+    ${tops.length ? tops.map(t => `<div class="rec"><b>${LABELS[t]}</b>${TIPS[t]}</div>`).join("") : `<p>You answered everything correctly. Take a full mock exam to test listening, speaking and writing.</p>`}
+    ${missed.length ? `<details><summary>Review ${missed.length} missed question${missed.length>1?"s":""}</summary>${missed.map(x => `<div class="miss"><b>${x.q.q}</b><br>Your answer: ${x.q.o[answers[x.k]]}<br>Correct: ${x.q.o[x.q.a]}</div>`).join("")}</details>` : ""}
+    <p class="note">This check covers reading, vocabulary and grammar only. The real exam also tests listening, speaking and writing, so treat this as a guide, not a guarantee. Also try one full official mock test before you book.</p>
+    <button class="btn ghost" id="again">Retake the check</button>`;
+  document.getElementById("again").onclick = start;
+}
+start();
+</script>
+</body>
+</html>
