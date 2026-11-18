@@ -26,9 +26,10 @@ All thresholds and weights live in one CONFIG object, so they are easy to change
 How “ready” is calculated
 Skill score = difficulty-weighted % correct (easy = 1, medium = 1.5).
 Overall score = average of the three skill scores.
+
+Ready: overall 75% or above, 
+Almost ready: 60% - 74% everything in between, including a high overall score with one weak skill.
 Not yet: overall below 60% (the exam pass mark).
-Ready: overall 75% or above, and no skill below 60%.
-Almost ready: everything in between, including a high overall score with one weak skill.
 
 Why these rules:
 All thresholds and weights live in one CONFIG object, so they are easy to change.
