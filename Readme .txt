@@ -8,6 +8,28 @@ Problem Statement ?
 
 Many learners finish A1 and book the exam without knowing if they are ready. Some fail and lose the exam fee and months on their journey abroad. This app gives them a quick, honest signal before they book.
 
+
+User persona: Priya, the hopeful mover
+Priya, 27
+Nurse planning to work in Germany.
+Just finished an A1 course. Studies
+after shifts, on her phone.
+
+Goal-
+Pass A1 on the first attempt and keep her visa timeline on track.
+Frustration-
+Her teacher says she is fine, but nobody tells her for sure before she pays.
+Needs-
+A short, trustworthy check that shows what to fix before booking.
+
+Whys: why this problem matters
+Why 1 Why do learners fail? They book the exam without knowing if they are ready.
+Why 2 Why? Finishing a course feels like readiness, and no objective check exists.
+Why 3 Why? Mock tests are scattered, long or paid, so many learners skip them.
+Why 4 Why? Feedback arrives only after the exam, when it is too late.
+Why 5 A fail costs the fee, months on a visa timeline and confidence. The root cause: no quick readiness signal
+before booking
+
 What Webapp Does?
 The learner answers 14 multiple-choice questions: 5 vocabulary, 5 grammar and 4 reading.
 The app shows a verdict (Ready, Almost ready or Not yet) with an overall score.
@@ -17,9 +39,7 @@ The learner can review the questions that are wrong.
 
 Why these rules:
 
-60% is the pass mark for Goethe Start Deutsch 1. Check the current rules on the Goethe and ÖSD websites.
-The 15-point buffer exists because a 14-question check is a noisy sample.
-One weak skill can still fail the exam, so it blocks “Ready”.
+60% is the pass mark for Goethe Start Deutsch.
 
 All thresholds and weights live in one CONFIG object, so they are easy to change.
 
@@ -27,12 +47,11 @@ How “ready” is calculated
 Skill score = difficulty-weighted % correct (easy = 1, medium = 1.5).
 Overall score = average of the three skill scores.
 
-Ready: overall 75% or above, 
-Almost ready: 60% - 74% everything in between, including a high overall score with one weak skill.
-Not yet: overall below 60% (the exam pass mark).
+Ready: - overall 75% or above, 
+Almost ready: -60% - 74% everything in between, including a high overall score with one weak skill.
+Not yet: - overall below 60% (the exam pass mark).
 
-Why these rules:
-All thresholds and weights live in one CONFIG object, so they are easy to change.
+
 
 Why no LLM, RAG or agents
 
